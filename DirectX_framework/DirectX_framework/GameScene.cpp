@@ -1,6 +1,5 @@
 #include "GameScene.h"
 
-
 void GameScene::Init()
 {
     // ‰Šú‰»ˆ—

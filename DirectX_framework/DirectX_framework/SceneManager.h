@@ -8,8 +8,6 @@ public:
     static void Update();
     static void Draw();
     static void Uninit();
-
-private:
     static std::unique_ptr<Scene> currentScene;
 };
 

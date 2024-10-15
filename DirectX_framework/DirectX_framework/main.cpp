@@ -88,7 +88,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_  HINSTANCE hPrevInstance, 
 	long long nowCount = oldCount;// 今回計測時の時間
 
 	// ゲームループ
-	while (1)
+	while (!game.ShouldExit())
 	{
 		// 新たにメッセージがあれば
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
