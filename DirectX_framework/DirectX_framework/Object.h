@@ -2,6 +2,12 @@
 #include "direct3d.h"
 #include "WICTextureLoader.h"
 
+struct BoundingBox //当たり判定で使う最大最小座標(背景とかは使わない…？と思ったので一旦外に…)
+{
+	DirectX::XMFLOAT3 min; // 最小座標
+	DirectX::XMFLOAT3 max; // 最大座標
+};
+
 class Object
 {
 private:
@@ -32,15 +38,24 @@ public:
 	float numU = 0;
 	float numV = 0;
 
-	void Init(const wchar_t* imgname, int sx = 1, int sy = 1);//初期化
-	void Draw();
-	void Uninit();
+	virtual void Init()   = 0; //派生側
+	virtual void Uninit() = 0; //派生側
+	void Initialize(const wchar_t* imgname, int sx = 1, int sy = 1); //初期化
+	void Draw();				//描画
+
+	//----------セッター関係--------------
 	void SetPos(float x, float y, float z);
 	void SetSize(float x, float y, float z);
 	void SetAngle(float a);
 	void SetColor(float r, float g, float b, float a);
+
+	//----------ゲッター関係--------------
 	DirectX::XMFLOAT3 GetPos(void);
 	DirectX::XMFLOAT3 GetSize(void);
 	float GetAngle(void);
 	DirectX::XMFLOAT4 GetColor(void);
+
+	//----------当たり判定関係---------------
+	void UpdateBoundingBox();					//最大最小座標をを更新する関数
+	bool CheckCollision(const Object& other);	// 当たり判定をチェックする関数
 };

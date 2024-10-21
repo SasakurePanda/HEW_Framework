@@ -42,32 +42,42 @@ bool Game::ShouldExit()
     return false; // ここに終了条件を記述
 }*/
 #include <windows.h>
+#include "SceneManager.h"
 #include "Game.h"
-#include "TitleScene.h" // 初期シーンのヘッダーをインクルード
+//#include "TitleScene.h" // 初期シーンのヘッダーをインクルード
 
-void Game::Init(HWND hWnd) {
+void Game::Init(HWND hWnd)
+{
     // DirectXの初期化
     D3D_Create(hWnd);
     // 初期シーンの設定
     sceneManager.ChangeScene(std::make_unique<TitleScene>());
 }
 
-void Game::Update() {
+void Game::Update()
+{
     // ゲーム全体の更新処理
+    if (input.GetKeyPress(VK_A))
+    {
+        sceneManager.ChangeScene(std::make_unique<GameScene>());
+    }
     sceneManager.Update();//SceneManagerのUpdateに移動してシーン自体を更新する
 }
 
-void Game::Draw() {
+void Game::Draw()
+{
     // ゲーム全体の描画処理
     sceneManager.Draw();
 }
 
-void Game::Uninit() {
+void Game::Uninit()
+{
     // ゲーム全体の終了処理
     sceneManager.Uninit();
 }
 
-bool Game::ShouldExit() {
+bool Game::ShouldExit()
+{
     // 終了条件の判定
     return false; // ここに終了条件を記述
 }

@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="input.cpp" />
+    <ClCompile Include="TitleBackGround.cpp" />
     <ClCompile Include="direct3d.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -138,6 +140,8 @@
     <ClCompile Include="WICTextureLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="input.h" />
+    <ClInclude Include="TitleBackGround.h" />
     <ClInclude Include="direct3d.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameScene.h" />

@@ -1,4 +1,5 @@
 #include "TitleScene.h"
+#include "TitleBackGround.h"
 
 void TitleScene::Init()
 {
@@ -13,6 +14,8 @@ void TitleScene::Update()
 void TitleScene::Draw()
 {
     // •`‰æˆ—
+    D3D_StartRender();  //•`‰æŠJn
+    D3D_FinishRender(); //•`‰æI—¹
 }
 
 void TitleScene::Uninit()

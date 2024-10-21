@@ -1,4 +1,9 @@
+//------------------------------------------------
+//シーン切り替えの際の処理をまとめるクラス
+//------------------------------------------------
 #pragma once
+#include "GameScene.h"
+#include "TitleScene.h"
 #include "Scene.h"
 #include <memory>
 

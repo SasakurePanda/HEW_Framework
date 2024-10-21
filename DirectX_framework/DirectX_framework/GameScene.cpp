@@ -11,8 +11,9 @@ void GameScene::Update()
 }
 
 void GameScene::Draw()
-{
-    // •`‰æˆ—
+{   // •`‰æˆ—
+
+
 }
 
 void GameScene::Uninit()

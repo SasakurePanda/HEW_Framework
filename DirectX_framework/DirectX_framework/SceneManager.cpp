@@ -1,7 +1,7 @@
 #include "SceneManager.h"
 
 std::unique_ptr<Scene>
- SceneManager::currentScene = nullptr;
+SceneManager::currentScene = nullptr;
 
 void SceneManager::ChangeScene(std::unique_ptr<Scene> newScene)
 {
@@ -10,32 +10,32 @@ void SceneManager::ChangeScene(std::unique_ptr<Scene> newScene)
         currentScene->Uninit();
     }
     currentScene = std::move(newScene); //オブジェクトの所有権を移動するための関数
-    //newSceneの所有権をcurrentSceneに移すよ
-    currentScene->Init();
-    //現在のシーンの開始の処理をするよ
+                                        //newSceneの所有権をcurrentSceneに移すよ
+
+    currentScene->Init();//現在のシーンの開始の処理をするよ
 
 }
 
 void SceneManager::Update()
 {
-    if (currentScene)
+    if (currentScene)//ちゃんと今のシーンのデータが入っているなら
     {
-        currentScene->Update();
+        currentScene->Update();//currentSceneを参照してUpdateする
     }
 }
 
 void SceneManager::Draw()
 {
-    if (currentScene)
+    if (currentScene)//ちゃんと今のシーンのデータが入っているなら
     {
-        currentScene->Draw();
+        currentScene->Draw();//currentSceneを参照してDrawする
     }
 }
 
 void SceneManager::Uninit()
 {
-    if (currentScene)
+    if (currentScene)//ちゃんと今のシーンのデータが入っているなら
     {
-        currentScene->Uninit();
+        currentScene->Uninit();//currentSceneを参照してUninitする
     }
 }
